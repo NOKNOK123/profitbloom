@@ -696,7 +696,9 @@ app.put('/api/admin/shops/:id', route(async (req) => {
 app.use('/api', (_req, _res, next) => next(new HttpError(404, 'ไม่พบ API นี้')));
 
 app.use((err, _req, res, _next) => {
-  const status = err.status || (err.type === 'entity.parse.failed' ? 400 : 500);
+  // bad JSON comes from Express locally (entity.parse.failed) or from Vercel's body parser (SyntaxError)
+  const badJson = err.type === 'entity.parse.failed' || err instanceof SyntaxError;
+  const status = badJson ? 400 : err.status || 500;
   if (status >= 500) console.error(err);
-  res.status(status).json({ error: status >= 500 ? 'เกิดข้อผิดพลาดในระบบ' : err.message });
+  res.status(status).json({ error: badJson ? 'ข้อมูลที่ส่งมาไม่ถูกต้อง' : status >= 500 ? 'เกิดข้อผิดพลาดในระบบ' : err.message });
 });

@@ -8,3 +8,6 @@ Home - light.pdf
 *.pdf
 *.pptx
 *.make
+.agents
+.claude
+skills-lock.json
