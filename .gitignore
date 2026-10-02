@@ -1,0 +1,10 @@
+node_modules
+dist
+data
+.env*
+.vercel
+.DS_Store
+Home - light.pdf
+*.pdf
+*.pptx
+*.make
