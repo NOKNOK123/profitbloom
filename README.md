@@ -2,6 +2,8 @@
 
 ระบบคำนวณต้นทุน–กำไร และออกใบเสนอราคา สำหรับธุรกิจจัดดอกไม้/จัดงาน
 
+ส่งมอบงาน / เจ้าของใหม่: อ่าน [HANDOVER.md](HANDOVER.md) ก่อน
+
 - **Frontend:** React + Vite + Tailwind (ดีไซน์จาก Figma Make)
 - **Backend:** Node.js + Express, ฐานข้อมูล SQLite ผ่าน `@libsql/client` — บนเครื่องใช้ไฟล์ใน `data/`, บน Vercel ใช้ [Turso](https://turso.tech)
 - **Login:** อีเมล + รหัสผ่าน (scrypt hash), session cookie แบบ httpOnly
